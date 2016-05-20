@@ -1,0 +1,55 @@
+Run SimCraft with a three dimensional reforge analysis.
+Click html -> save as file.
+Click Results -> 'Plot data', save as file.
+
+From html: Extract this part
+
+
+// <input type='hidden' name='chd' value='t:
+
+0.666667,0.708333,0.750000,0.791667,0.833333,0.583333, | ...,0.000000
+
+// ' />
+// <input type='hidden'name='chco'value='
+
+DD0022|CA0035|F80070|C0003F|8E0071|C2003D|B2004D| ... |4100BE
+
+// '/>
+// <input type='hidden' name='chds' value='-0.1,1.1,-0.1,0.95' />
+// <input type='hidden' name='chdls' value='dddddd,12' />
+
+Save as points.dat
+
+
+
+
+
+
+
+
+
+From plot data: Extract this part (keep 'rating, rating, rating, DPS, DPS-Error'...):
+
+// 800, 125627, 480.626
+// 850, 126287, 484.145
+// 900, 126724, 461.886
+// 950, 127102, 484.772
+// 1000, 127169, 448.189
+// 
+// Blodsfrost_Active Reforge Plot Results:
+
+haste_rating, mastery_rating, multistrike_rating,  DPS, DPS-Error
+-500, 0, 500, 117957, 1317.31,
+-500, 25, 475, 117732, 1352.49,
+-500, 50, 450, 118322, 1463.56,
+-500, 75, 425, 116407, 1214.73,
+
+...
+
+500, -25, -475, 117774, 1524.22,
+500, 0, -500, 118009, 1391.71,
+
+
+Save as dps.csv
+
+Run python plot.py
