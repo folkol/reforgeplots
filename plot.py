@@ -1,14 +1,16 @@
 from numpy import loadtxt
+import numpy
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 with open('points.dat') as f:
-    data = f.read()
+    xs = f.readline().split(',')
+    ys = f.readline().split(',')
+    dps = (int(x, 16) for x in f.readline().split('|'))
 
-xs, ys = data.split('|')
-
-print xs, ys
+print xs, ys, dps
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-Axes3D.plot_wireframe(xs, ys, zs, *args, **kwargs)
+X, Y = numpy.meshgrid(xs, ys)
+Axes3D.plot_wireframe(X, Y)
